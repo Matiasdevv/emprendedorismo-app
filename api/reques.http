@@ -1,0 +1,73 @@
+###
+GET http://localhost:9000/api/alumno/Gales Galdeon HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/asistencia HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/personal/preceptor HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/alumno HTTP/1.1
+
+###
+
+
+GET http://localhost:9000/api/alumno/asistencia HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/credenciales HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/curso HTTP/1.1
+
+###
+GET http://localhost:9000/api/materia HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/materias/1 HTTP/1.1
+
+###
+GET http://localhost:9000/api/notas/65555 HTTP/1.1
+
+###
+
+POST http://localhost:9000/api/postAlumno HTTP/1.1
+Content-Type: application/json
+
+{
+    "dniAlumno": 4933,
+    "nombreAlumno": "Base",
+    "matricula": 221,
+    "curso_id": 4,
+    "direccion" : "Alvarez 233",
+    "email": "UnaBaseMas@gmail"
+}
+
+###
+
+PUT http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "dniAlumno": 4933,
+    "nombreAlumno": "UnAlumnoMas",
+    "matricula": 221,
+    "curso_id": 4,
+    "direccion" : "Alvarez 233",
+    "email": "UnaBaseMas@gmail"
+}
+
+###
+
+DELETE http://localhost:9000/api/4933 HTTP/1.1
+
+###
+
+DELETE http://localhost:9000/api/eliminarCurso/25 HTTP/1.1
