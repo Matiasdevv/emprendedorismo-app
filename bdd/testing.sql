@@ -63,6 +63,16 @@ create table cursoNumero(
 
 );
 
+DROP TABLE IF EXISTS division;
+
+create table division(
+
+	id int auto_increment,
+    `nombre` char(8),
+    
+	primary key(id)
+);
+
 
 DROP TABLE IF EXISTS curso;
 
@@ -79,9 +89,14 @@ CREATE TABLE curso(
     foreign key(preceptorId) references personal(dni) on update no action,
     foreign key(idCurso) references cursoNumero(idCursoNumero) on update no action,
 	foreign key(idTurno) references turno(idTurno) on update no action,
+    foreign key(division) references division(id) on update no action,
     primary key(registroCurso)
 
 );
+#Error Code: 1005. Can't create table `colegio_test`.`curso` 
+
+
+
 
 DROP TABLE IF EXISTS materia;
 
@@ -248,8 +263,8 @@ create table if not exists usuario(
 Aca irán los valores predefinidos, sin estos probablemente te tire un error a la hora de hacer crud.
 Igualmente es para cuando se levanta la bdd, ya una vez iniciada se puede cambiar lo q sea.
 */
-
 /*
+
 #QUERYs
 
 insert into tipoAsis(nombre)
@@ -288,7 +303,23 @@ insert into cursoNumero(nombre)values
 ('Septimo año')
 ;
 
+insert into personal 
+values
+(1,'Marcos Montes','Diego Alcorta 555','+5492804190222','preceptor','Matematicas'),
+(2,'Marcos jara','el peron','+5492804190225','director','administracion de empresas'),
+(3,'Marcos viera','barrio sur','+5492804190225','profesor','desarrollo'),
+(4,'El profe herramientas','cerca de antonio','+5492804190444','profesor','Herramienas')
+;
 
+
+insert into materia (nombre,turno,orientacion,sitRevistaId,dni_profesor,idCurso)
+values
+('Matematica','Tarde',1,1,1,1),
+('Desarrollo','Mañana',1,1,4,7),
+('lenguaje musical','tarde',3,3,3,4),
+('Software','mañana',1,2,4,2),
+('Electricidad','mañana',2,2,null,5)
+;
 insert into curso (idCurso, division,idTurno,orientacionId,preceptorId)
 values
 (1,3,1,2,1),
@@ -313,23 +344,7 @@ values
    
    
 
-insert into personal 
-values
-(1,'Marcos Montes','Diego Alcorta 555','+5492804190222','preceptor','Matematicas'),
-(2,'Marcos jara','el peron','+5492804190225','director','administracion de empresas'),
-(3,'Marcos viera','barrio sur','+5492804190225','profesor','desarrollo'),
-(4,'El profe herramientas','cerca de antonio','+5492804190444','profesor','Herramienas')
-;
 
-
-insert into materia (nombre,turno,orientacion,sitRevistaId,dni_profesor,idCurso)
-values
-('Matematica','Tarde',1,1,1,1),
-('Desarrollo','Mañana',1,1,4,7),
-('lenguaje musical','tarde',3,3,3,4),
-('Software','mañana',1,2,4,2),
-('Electricidad','mañana',2,2,null,5)
-;
 
 insert into alumno 
 
