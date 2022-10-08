@@ -1,8 +1,11 @@
 ###
-GET http://localhost:9000/api/alumno/Gales Galdeon HTTP/1.1
+GET http://localhost:9000/api/alumno/Alumno Random1 HTTP/1.1
 
 ###
 
+GET http://localhost:9000 HTTP/1.1
+
+###
 GET http://localhost:9000/api/asistencia HTTP/1.1
 
 ###

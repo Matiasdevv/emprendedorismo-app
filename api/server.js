@@ -30,7 +30,7 @@ app.use(cors({origin: whitelist})) // si los parentesis estan vacios abre el pue
 
 //server routes
 app.get('/',(req,res)=>{
-    res.send('Welcome to my api uwu')
+    res.redirect('http://localhost:3000')
 })
 app.use('/api', routes)
 app.use('/alumno', routes)
