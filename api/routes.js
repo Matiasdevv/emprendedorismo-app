@@ -67,6 +67,7 @@ where n.dniAlumno = ?
 
      ///Get
 
+
 routes.get('/alumno/:id', (req, res)=>{
     req.getConnection((err,conn)=>{
 
@@ -160,9 +161,9 @@ routes.get('/credenciales', (req, res)=>{
             conn.query('select * from usuario',
              (error,rows)=>{
                 if(error) return res.send(error)
-
-                res.send(rows)
             })
+
+            // todo hacer la autenticacion y retornar las credenciales
 
         }catch(e){
 
