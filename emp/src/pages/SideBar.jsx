@@ -42,7 +42,7 @@ export const SideBar = () => {
 
             <ul id="sideBar__content">
 
-                        <li><Link to={'/alumnos'}><i className="fa-solid fa-user-graduate icon"></i><span>Alumnos</span></Link></li>
+                        <li><Link to={'/alumnos'}><i class="bi bi-people-fill"></i><span>Alumnos</span></Link></li>
                         <li><Link to={'/materias'}><i className="fa-solid fa-file-signature"></i><span>Materias</span></Link></li>
                         <li><Link to={'/cursos'}><i className="fa-solid fa-arrow-down-1-9"></i><span>Cursos</span></Link></li>
                         <li><Link to={'/notas'}><i className="fa-solid fa-calendar-days"></i><span>Notas</span></Link></li>
