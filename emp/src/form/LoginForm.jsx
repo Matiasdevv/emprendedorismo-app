@@ -12,7 +12,10 @@ export const LoginForm = () => {
 
   const loginPeticion = async()=>{
     try{
-        await fetch(peticiones['credenciales'])
+        await fetch(peticiones['credenciales'], {
+          method: "POST",
+          body: credentials
+        })
         .then(res=>res.json())
         .then(res=>setCredentials(res))
 
@@ -23,11 +26,6 @@ export const LoginForm = () => {
 
 
   useEffect(() => {
-
-    loginPeticion()
-
-
-
 
   }, [])
 
@@ -42,12 +40,19 @@ export const LoginForm = () => {
   }
 
 
+  const handleCredentials = (e)=>{
+    setCredentials({
+      ...credentials,
+
+      [e.target.name]: e.target.value
+
+    })
+  }
+
 
     const verificarLogin = (e)=>{
 
-      e.preventDefault()
-
-      
+      loginPeticion()
 
     }
 
@@ -67,7 +72,7 @@ export const LoginForm = () => {
           </div>
           <div className='mb-3'>
             <label htmlFor='password'>Contraseña</label>
-            <Field type={'password'} id='password' name='password' className='form-control' placeholder='Ingresa contraseña'/>
+            <Field type={'password'} id='password' name='password' onChange={(e)=>handleCredentials(e)} className='form-control' placeholder='Ingresa contraseña'/>
           </div>
           <div className='mb-3'>
               <Field type={'submit'} name='btn-submit' className='btn btn-dark' value='Iniciar sesion'/>
