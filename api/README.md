@@ -1,4 +1,4 @@
-## ¿Que hace cada uno de los archivos?
+## ¿Que contiene cada uno de los archivos?
 
 
 1. server.js
