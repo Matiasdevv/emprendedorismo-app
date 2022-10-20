@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS division;
 create table division(
 
 	id int auto_increment,
-    `nombre` char(8),
+    `nombre` varchar(80),
     
 	primary key(id)
 );
@@ -265,7 +265,7 @@ Igualmente es para cuando se levanta la bdd, ya una vez iniciada se puede cambia
 */
 /*
 
-#QUERYs
+#QUERYs (Están colocadas en forma de cascada, es decir que una depende de otra, si falla una, se para)
 
 insert into tipoAsis(nombre)
  values ('Presente'),
@@ -305,10 +305,10 @@ insert into cursoNumero(nombre)values
 
 insert into personal 
 values
-(1,'Marcos Montes','Diego Alcorta 555','+5492804190222','preceptor','Matematicas'),
-(2,'Marcos jara','el peron','+5492804190225','director','administracion de empresas'),
-(3,'Marcos viera','barrio sur','+5492804190225','profesor','desarrollo'),
-(4,'El profe herramientas','cerca de antonio','+5492804190444','profesor','Herramienas')
+(1,'Profe Random1','Diego Alcorta 555','+5492804190222','preceptor','Matematicas'),
+(2,'Profe Random2','peron','+5492804190225','director','administracion de empresas'),
+(3,'Profe Random3','Direccion Random','+5492804190225','profesor','desarrollo'),
+(4,'Profe Random4','Direccion Random1','+5492804190444','profesor','Herramienas')
 ;
 
 
@@ -320,6 +320,13 @@ values
 ('Software','mañana',1,2,4,2),
 ('Electricidad','mañana',2,2,null,5)
 ;
+
+insert into division(nombre) values
+('Primera división')
+('Segunda división'),
+('Tercera división'),
+('Cuarta división);
+
 insert into curso (idCurso, division,idTurno,orientacionId,preceptorId)
 values
 (1,3,1,2,1),
@@ -340,7 +347,7 @@ values
 
 ;
    
-	#Nota: en caso de q tire error, iniciar personal, luego materias y al final curso jiji
+	#Nota: en caso de que se produsca, iniciar personal, luego materias y al final curso 
    
    
 
@@ -376,21 +383,13 @@ values
 (8,22598092,3,3,1),
 (9,46082789,1,4,1);
 
-update personal set cargo = 'vice-director' where dni = 4;
 
 insert into usuario(cuenta, password) values ('admin','admin');
 
 */
 
-/**create trigger tr2 
-after insert
-on tutor
-for each row insert into tutorDetalles values(1,1);
-
-#Error Code: 1442. Can't update table 'tutordetalles' in stored function/trigger because it is already used by statement which invoked this stored function/trigger
-**/
-
-#CONSULTAS
+/*
+#CONSULTAS (esto se verá mas reflejado en la api del servidor)
 
 #analisís
 
@@ -421,7 +420,7 @@ where alumno.dniAlumno = 89732221;
 /*
 	Importante saber como se hace la consulta para saber las faltas pq sino es un garrón querer implementar esto a la bdd
 */
-
+/*
 #consulta para las asistencias 
 
 select count(
@@ -440,11 +439,6 @@ from
 select asis.dia, asis.preceptorId as 'preceptor', asis.tipo, a.nombreAlumno as 'alumno', asis.justify as 'justificacion' from 
 asistencia asis
 join alumno a on alumno_dni = a.dniAlumno;
-
-
-select nombreAlumno as 'nombre' from alumno;
-
-#ni idea q hice ahi
 
 select m.nombre,
 	(select nombre from personal where personal.dni = m.dni_profesor and personal.cargo = 'profesor') as 'Profesor'
