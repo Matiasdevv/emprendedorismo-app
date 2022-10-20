@@ -447,9 +447,11 @@ from materia m
 
 
 /*
-	En este lado se encuentran las posibles consultas a realizar, igualmente debo aprender sobre consultas en backend jiwqjijdqw
+	En este lado se encuentran las posibles consultas a realizar, igualmente debo aprender sobre consultas en backend (aprendido)
 */
 
+
+/*
 
 
 select * from personal;
