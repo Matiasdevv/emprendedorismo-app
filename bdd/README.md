@@ -8,3 +8,11 @@ dentro del gesto, daremos click en el boton **abrir**; allí seleccionaremos el 
  Una vez se haya creado(lo sabremos ya que en output aparecerán todos checks(✔)).\
  Despues de eso, nos dirigiremos al apartado comentado que se encuentra abajo de el codigo principal, alli encontraremos la seccion **Querys**, seleccionaremos toda la seccion y lo ejecutaremos.\
   _Esto pondrá los datos mas necesarios de la bdd_.
+
+
+
+  ### ¿Como instalar MySqlWorkbench?
+
+  Para esto nos dirigiremos hacia el siguiente enlace:
+
+  __https://downloads.mysql.com/archives/installer/__
